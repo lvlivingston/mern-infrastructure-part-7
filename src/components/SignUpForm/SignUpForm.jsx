@@ -10,6 +10,20 @@ export default class SignUpForm extends Component {
         error: ''
     }
     
+    // setState comes from above state class component
+    // The object passed to setState is merged with the current state object
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+            error: ''
+        });
+    };  
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        alert(JSON.stringify(this.state));
+    }
+
     render() {
         const disable = this.state.password !== this.state.confirm;
         return (
