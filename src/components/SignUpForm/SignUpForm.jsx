@@ -34,7 +34,8 @@ export default class SignUpForm extends Component {
           delete formData.confirm;
 
           const user = await signUp(formData);
-          console.log(user);
+
+          this.props.setUser(user);
         } catch {
           // An error occurred 
           this.setState({ error: 'Sign Up Failed - Try Again' });
