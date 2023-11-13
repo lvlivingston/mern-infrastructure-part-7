@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
     create,
-    login
+    login,
+    checkToken
 };
   
 async function create(req, res) {
@@ -31,6 +32,12 @@ async function login(req, res) {
     console.log(err)
     res.status(400).json('Bad Credentials')
   }
+}
+
+function checkToken(req, res) {
+  // req.user will always be there for you when a token is sent
+  console.log('req.user', req.user);
+  res.json(req.exp);
 }
 
 // Helper functions
